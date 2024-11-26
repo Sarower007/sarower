@@ -2,20 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Keyframe for brightening glow animation */
+@keyframes bright-glow {
+    0% {
+      text-shadow: 0 0 5px #97c93e, 0 0 10px #97c93e, 0 0 20px #97c93e, 0 0 30px #97c93e;
+      box-shadow: 0 0 5px #97c93e, 0 0 10px #97c93e, 0 0 20px #97c93e;
+    }
+    50% {
+      text-shadow: 0 0 15px #97c93e, 0 0 25px #97c93e, 0 0 35px #97c93e, 0 0 50px #97c93e;
+      box-shadow: 0 0 15px #97c93e, 0 0 25px #97c93e, 0 0 35px #97c93e;
+    }
+    100% {
+      text-shadow: 0 0 5px #97c93e, 0 0 10px #97c93e, 0 0 20px #97c93e, 0 0 30px #97c93e;
+      box-shadow: 0 0 5px #97c93e, 0 0 10px #97c93e, 0 0 20px #97c93e;
+    }
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+  
+  /* Applying the brightening glow animation to hover */
+  .group-hover\:animate-bright-glow:hover {
+    animation: bright-glow 1.5s ease-in-out infinite;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
